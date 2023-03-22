@@ -75,7 +75,8 @@ input[type=text] {
 }
 
 .footer {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-align: center;
+    background-color: rgb(43, 41, 41);;
+    padding: 20px;
+    color: aliceblue;
   }
+
