@@ -75,8 +75,33 @@ input[type=text] {
 }
 
 .footer {
-    background-color: rgb(43, 41, 41);;
+    background-color: rgb(43, 41, 41);
+    ;
     padding: 20px;
     color: aliceblue;
-  }
+}
 
+a:link,
+a:visited {
+    background-color: #236ccd;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+a:hover,
+a:active {
+    background-color: #EDBE19;
+}
+
+.cajas {
+    color: rgb(0, 0, 0);
+    width: 200px;
+    border: 9px solid rgb(198, 235, 198);
+    padding: 20px;
+    margin: 20px;
+
+}
