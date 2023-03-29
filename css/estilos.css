@@ -109,3 +109,15 @@ a:active {
 .letragris{
     color: #837d7d;
 }
+
+.container-items{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.item{
+    border-radius: 10px;
+}
+.item:hover{
+    box-shadow: 0 10px 10px rgb(0, 0, 0, 0.20);
+}
