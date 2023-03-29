@@ -81,8 +81,8 @@ input[type=text] {
     color: aliceblue;
 }
 
-a:link,
-a:visited {
+.cate:link,
+.cate:visited {
     background-color: #236ccd;
     color: white;
     padding: 14px 25px;
@@ -92,8 +92,8 @@ a:visited {
     border-radius: 6px;
 }
 
-a:hover,
-a:active {
+.cate:hover,
+.cate:active {
     background-color: #EDBE19;
 }
 
@@ -119,11 +119,11 @@ a:active {
 .item{
     margin: 15px;
     padding: 2px 16px;
-    box-shadow: 0  8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0  8px 16px 0 rgba(0,0,0,0.20);
     background-color: rgb(255, 255, 255);
 }
 .item:hover{
-    box-shadow: 0  8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0  8px 16px 0 rgba(0,0,0,0.20);
 }
 
 .boton-add{
@@ -134,5 +134,11 @@ a:active {
 .boton-add:hover{
     background-color: #236ccd;
     color: #efebe4;
+
+}
+.detail{
+    margin: 15px;
+    padding: 2px 16px;
+    background-color: #ffffff;
 
 }
