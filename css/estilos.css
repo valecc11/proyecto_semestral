@@ -137,17 +137,20 @@ input[type=text] {
 
 }
 .detail{
-    margin: 15px;
-    padding: 2px 16px;
+    margin: 8px;
+    padding: 2px 8px;
+    
     background-color: #ffffff;
     
 }
-.info-producto{
-    
+.marginproducto{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 80px;
     
    
 }
 .imgProduc{
     width: 100%;
-    max-width: 430px;
+    max-width: 500px;
 }
