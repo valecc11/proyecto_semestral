@@ -143,5 +143,11 @@ input[type=text] {
     
 }
 .info-producto{
-    text-align: right;
+    
+    
+   
+}
+.imgProduc{
+    width: 100%;
+    max-width: 430px;
 }
