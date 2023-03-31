@@ -106,51 +106,62 @@ input[type=text] {
 
 }
 
-.letragris{
+.letragris {
     color: #837d7d;
 }
 
-.container-items{
+.container-items {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    
-}
-.item{
-    margin: 10px;
-    padding: 2px 9px;
-    box-shadow: 0  8px 16px 0 rgba(0,0,0,0.20);
-    background-color: rgb(255, 255, 255);
-}
-.item:hover{
-    box-shadow: 0  8px 16px 0 rgba(0,0,0,0.20);
+
 }
 
-.boton-add{
+.item {
+    margin: 10px;
+    padding: 2px 9px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.20);
+    background-color: rgb(255, 255, 255);
+}
+
+.item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.20);
+}
+
+.boton-add {
     border-radius: 8px;
     padding: 10px 10px;
 
 }
-.boton-add:hover{
+
+.boton-add:hover {
     background-color: #236ccd;
     color: #efebe4;
 
 }
-.detail{
-    margin: 8px;
-    padding: 2px 8px;
-    
+
+.detail {
+    margin: 20px;
+    padding: 23px 70px;
+    border-radius: 16px;
+
+
     background-color: #ffffff;
-    
+
 }
-.marginproducto{
+
+.marginproducto {
     display: flex;
     gap: 30px;
     margin-bottom: 80px;
-    
-   
+
+
 }
-.imgProduc{
+
+.imgProduc {
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
+    float: left;
+   
+    
 }
