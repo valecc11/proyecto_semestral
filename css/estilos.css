@@ -161,7 +161,8 @@ input[type=text] {
 
 .imgProduc {
     width: 100%;
-    max-width: 700px;
+    max-width: 380px;
+    float: left;
    
     
 }
