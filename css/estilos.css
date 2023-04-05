@@ -166,3 +166,14 @@ input[type=text] {
    
     
 }
+
+.tamanocarrito {
+    margin-right: 20px;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 50px;
+}
+
+.tamanobuscar {
+    margin-top: 10px;
+}
