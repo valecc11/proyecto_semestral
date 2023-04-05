@@ -1,6 +1,6 @@
 .tamano {
     width: 100%;
-    max-width: 158px;
+    max-width: 173px;
 
 }
 
@@ -90,6 +90,8 @@ input[type=text] {
     text-decoration: none;
     display: inline-block;
     border-radius: 6px;
+    margin-top: 5px;
+
 }
 
 .cate:hover,
