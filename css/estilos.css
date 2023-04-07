@@ -197,3 +197,7 @@ input[type=text] {
         margin-left: 0%;
     }
   }
+
+.div {
+    width: 50px;
+}
