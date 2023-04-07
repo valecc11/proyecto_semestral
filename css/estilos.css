@@ -195,6 +195,10 @@ input[type=text] {
 .div {
     width: 50px;
 }
+.tamanioImgPrinci{
+    width: 100%;
+    max-width: 700px;
+}
 
 
 
