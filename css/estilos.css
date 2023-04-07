@@ -4,7 +4,7 @@
 
 }
 
-.carrito_compra_logo{
+.carrito_compra_logo {
     margin-left: 5%;
 }
 
@@ -128,7 +128,7 @@ input[type=text] {
     padding: 2px 9px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.20);
     background-color: rgb(255, 255, 255);
-    
+
 }
 
 .item:hover {
@@ -169,8 +169,8 @@ input[type=text] {
     width: 100%;
     max-width: 380px;
     float: left;
-   
-    
+
+
 }
 
 .tamanocarrito {
@@ -181,19 +181,35 @@ input[type=text] {
     max-width: 45px;
 }
 
-.carritoproducto{
+.carritoproducto {
     color: #da0808;
-    
+
 }
 
 @media only screen and (max-width: 575px) {
-    .carrito_compra_logo{
+    .carrito_compra_logo {
         margin-left: 0%;
     }
-  }
-
-.tamanioImgPrinci{
-    width: 100%;
-    max-width: 650px;
 }
 
+.div {
+    width: 50px;
+}
+
+
+
+.carrito {
+    margin: 10px;
+    padding: 2px 9px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.20);
+    background-color: rgb(255, 255, 255);
+}
+
+.tamcarrito {
+    width: 100%;
+    max-width: 150px;
+}
+
+.tabla {
+    margin-bottom: 50px;
+}
