@@ -217,3 +217,15 @@ input[type=text] {
 .tabla {
     margin-bottom: 50px;
 }
+.boton-add2 {
+    border-radius: 8px;
+    padding: 10px 10px;
+    
+
+}
+
+.boton-add2:hover {
+    background-color: #dc1c1c;
+    color: #ffffff;
+
+}
