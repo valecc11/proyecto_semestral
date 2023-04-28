@@ -46,7 +46,7 @@
                 <form class="d-flex tamanobuscar">
                     <input class="form-control me-2 " type="text" placeholder="Buscar...">
                     <button class="btn btn-primary" type="button">Buscar</button>
-                    
+
 
                 </form>
 
@@ -70,39 +70,38 @@
                 <h2 class="text-center">Inicio sesión</h2>
 
 
-                <form
-                    action="crearcuenta.html" method="get">
-                    
+                <form action="crearcuenta.html" method="get" id="form2">
+
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input id="correo" name="correo"
-                            class="form-control" type="email"
+                        <input id="correo" name="correo" class="form-control" type="email"
                             placeholder="Correo electrónico">
                     </div>
                     <div class="form-group">
                         <label for="palabraSecreta">Contraseña</label>
-                        <input id="palabraSecreta" name="palabraSecreta"
-                            class="form-control" type="password"
+                        <input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password"
                             placeholder="Contraseña">
                     </div>
-                
-                    <br>
-                   
-                    <button type="button" >
-                      
-                        <a  href="perfilusuario.html">Entrar</a>
-                    </button> 
 
-                    <button type="submit" >
+                    <br>
+
+                    <button type="button">
+
+                        <a href="perfilusuario.html">Entrar</a>
+                        
+                    </button>
+                    <p class="warnings" id="warnings"></p>
+
+                    <button type="submit">
                         Registrate
                     </button>
-                    <button type="button" >
-                      
-                        <a  href="perfiladmin.html">Entrar perfil admin</a>
-                    </button> 
+                    <button type="button">
+
+                        <a href="perfiladmin.html">Entrar perfil admin</a>
+                    </button>
                     <br>
 
-                   
+
                     <a href="recuperar.html">Contraseña olvidada</a>
                 </form>
             </div>
@@ -111,7 +110,7 @@
 
 
 
-    
+<script src="js/jquery.js"></script>
 </body>
 
 </html>

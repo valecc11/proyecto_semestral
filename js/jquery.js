@@ -1,3 +1,4 @@
+//PAGINA CREAR CUENTA
 $(document).ready(function () {
     $("#form1").submit(function (e) {
         e.preventDefault();
@@ -18,16 +19,16 @@ $(document).ready(function () {
             enviar = true;
         }
 
-        var letra = nombre.trim().charAt(0);                                          
+        var letra = nombre.trim().charAt(0);
         if (!esMayuscula(letra)) {
             msjMostrar += "<br>El nombre debe comenzar con mayúscula";
             enviar = true;
         }
         var correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;                                     //validar correo, aun falta que funcione
         if (!correoRegex.test(correo)) {
-           msjMostrar += "<br> Ingrese una dirección de correo válida"
-           enviar = true;
-        } 
+            msjMostrar += "<br> Ingrese una dirección de correo válida"
+            enviar = true;
+        }
 
 
         if (clave.trim().length < 8) {                                                      //validar contraseña, tiene un minimo de 8 caracteres, un numero, caracter especial, minus, mayus 
@@ -67,11 +68,6 @@ $(document).ready(function () {
 
         }
 
-
-
-
-
-
         if (enviar) {
             $("#warnings").html(msjMostrar);
         }
@@ -83,9 +79,6 @@ $(document).ready(function () {
 
 
     });
-
-
-
 
     function esMayuscula(letra) {
         console.log("Estoy aqui");
@@ -104,4 +97,36 @@ $(document).ready(function () {
 
 
 
+});
+
+//PAGINA LOGIN
+$(document).ready(function () {
+    $("#form2").submit(function (e) {
+        e.preventDefault();
+        var correo = $("#correo").val();
+        var clave = $("palabraSecreta").val();
+
+
+        let msjMostrar = "";
+        let enviar = false;
+
+        if(!correo == 'hola'){
+            msjMostrar += "el correo no es correcto"
+            enviar = true;
+
+        }
+
+
+     
+
+        
+        if (enviar) {
+            $("#warnings").html(msjMostrar);
+        }
+        else {
+            $("#warnings").html("Enviado");
+        }
+    });
+
+   
 });
