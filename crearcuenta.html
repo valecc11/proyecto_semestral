@@ -6,9 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crear Cuenta</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
@@ -85,32 +94,32 @@
         <div class="row">
             <div class="col-md-4 d-sm-12"></div>
             <div class="col-md-4 col-sm-12">
-                <form action="" method="POST" enctype="multipart/form-data" id="form">
+                <form action="" method="POST" id="form1">
 
                     <div class="form-group">
                         <label>Nombre: </label>
-                        <input class="form-control" name="nombre" placeholder="Escriba su nombre" value="" id="name"
-                            >
+                        <input class="form-control" name="nombre" placeholder="Escriba su nombre" value="" id="name">
                     </div>
 
                     <div class="form-group">
                         <label>Correo: </label>
-                        <input class="form-control" type="email" name="nombre" placeholder="Escriba su correo" value=""
-                            id="email " >
+                        <input class="form-control" type="" name="nombre" placeholder="Escriba su correo" value=""
+                            id="email ">
                     </div>
 
 
 
-                    <div class="form-group">
-                        <label>Contraseña: </label>
-                        <input class="form-control" type="password" name="clave" maxlength="6" placeholder="Contraseña"
-                            id="password " >
+                    <div class="grupo">
+                        <label for="">Contraseña:</label>
+                        <input class="form-control"  type="password" name="" id="password" placeholder="Escriba su contraseña"><span class="barra" required></span>
+                        
                     </div>
 
                     <div>
                         <label>Fecha de nacimiento: </label>
-                        <input class="form-control" type="date" name=""  id="fecha">
+                        <input class="form-control" type="date" name="" id="fecha">
                     </div>
+                    <br>
 
 
                     <button type="submit">Crear</button>
