@@ -130,3 +130,46 @@ $(document).ready(function () {
 
    
 });
+
+//pagina editar perfil 
+
+$(document).ready(function(){
+    $("#form3").submit(function(e){
+        e.preventDefault();
+
+        var nombre = $("#name").val();
+        var correo = $("#correo").val();
+        var fecha = $("#fecha").val();
+
+        let msjMostrar = "";
+        let enviar = false;
+        
+
+
+        if (nombre.trim().length < 4 || nombre.trim().length > 10) {                        //validar nombre
+            msjMostrar = msjMostrar + "El nombre debe tener entre 4 y 10 caracteres";
+            enviar = true;
+        }
+        else if (/\d/.test(nombre)) {
+            msjMostrar += "<br> El nombre no puede contener números"
+            enviar = true;
+        }
+
+        var letra = nombre.trim().charAt(0);
+        if (!esMayuscula(letra)) {
+            msjMostrar += "<br>El nombre debe comenzar con mayúscula";
+            enviar = true;
+        }
+
+        if (enviar) {
+            $("#warnings").html(msjMostrar);
+        }
+        else {
+            $("#warnings").html("Enviado");
+        }
+
+
+    });
+
+
+});
