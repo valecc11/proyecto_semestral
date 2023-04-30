@@ -173,3 +173,41 @@ $(document).ready(function(){
 
 
 });
+//cambiar contraseña
+$(document).ready(function(){
+    $("#password-form").submit(function (e) {
+        e.preventDefault();
+              var newPassword = $('#new-password').val();
+              var confirmPassword = $('#confirm-password').val();
+          
+              // Verificar longitud mínima
+              if (newPassword.length < 8) {
+                $('#password-error').text('La nueva contraseña debe tener al menos 8 caracteres.');
+                e.preventDefault();
+                return;
+              }
+          
+              // Verificar mayúsculas, minúsculas, números y simbolo
+              var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&*]).+$/;
+              if (!regex.test(newPassword)) {
+                $('#password-error').text('La nueva contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial .');
+                e.preventDefault();
+                return;
+              }
+          
+              // Verificar que las contraseñas coinciden
+              if (newPassword !== confirmPassword) {
+                $('#password-error').text('Las contraseñas no coinciden.');
+                e.preventDefault();
+                return;
+              }
+            });
+});
+         
+          
+          
+          
+
+          
+          
+
