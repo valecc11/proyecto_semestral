@@ -168,25 +168,39 @@ $(document).ready(function(){
             $("#warnings").html("Enviado");
         }
 
+        //validar correo
+        if((correo).trim().indexOf('@',0) == -1 || (correo).trim().indexOf('.', 0)==-1){
+            msjMostrar +="<br>  El correo introducido es invalido, deve tener un @";
+            enviar = true
+        }
+
+        if(correo.trim()==""){
+            msjMostrar += "<br> El espacio de correo no puede quedar sin rellenar";
+            enviar = true
+        }
+
+ 
 
     });
-
-
+  
 });
+
+
+
+
+
 //cambiar contraseña
 $(document).ready(function(){
     $("#password-form").submit(function (e) {
         e.preventDefault();
               var newPassword = $('#new-password').val();
               var confirmPassword = $('#confirm-password').val();
-          
               // Verificar longitud mínima
               if (newPassword.length < 8) {
                 $('#password-error').text('La nueva contraseña debe tener al menos 8 caracteres.');
                 e.preventDefault();
                 return;
               }
-          
               // Verificar mayúsculas, minúsculas, números y simbolo
               var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&*]).+$/;
               if (!regex.test(newPassword)) {
@@ -194,7 +208,6 @@ $(document).ready(function(){
                 e.preventDefault();
                 return;
               }
-          
               // Verificar que las contraseñas coinciden
               if (newPassword !== confirmPassword) {
                 $('#password-error').text('Las contraseñas no coinciden.');

@@ -9,6 +9,15 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+     crossorigin="anonymous"></script>
+
+
     <link type="text/css" rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -107,16 +116,57 @@
             <div class="col-md-6 col-sm-12" style="text-align: center;">
                 <img class="tamanioImgPrinci" src="img/compra_online.png" alt="Sin imagen">
             </div>
-            <div class="col-md-3 col-sm-12"> </div>
-        </div>
+            <div class="col-md-3 col-sm-12" style="text-align: center";> </div>
+       
         <br>
         <br>
         <br>
         <br>
+
+        <h1>Tasas de cambio</h1>
+        <table id="tasas">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    
+        <script>
+            fetch('https://mindicador.cl/api')
+                .then(response => response.json())
+                .then(data => {
+                    const tasas = data;
+    
+                    const table = document.getElementById('tasas').getElementsByTagName('tbody')[0];
+    
+                    for (const tasa in tasas) {
+                        if (tasas.hasOwnProperty(tasa)) {
+                            const valor = tasas[tasa].valor;
+                            const nombre = tasas[tasa].nombre;
+    
+                            const row = table.insertRow();
+                            const cell1 = row.insertCell(0);
+                            const cell2 = row.insertCell(1);
+                            cell1.innerHTML = nombre;
+                            cell2.innerHTML = valor;
+                        }
+                    }
+                })
+                .catch(error => console.error(error));
+        </script>
+         </div>
 
 
 
     </div>
+
+
+
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -128,6 +178,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+    <script src="js/jquery.js"></script>
 </body>
 
 </html>
