@@ -110,10 +110,13 @@ $(document).ready(function () {
         let msjMostrar = "";
         let enviar = false;
 
-        if(!correo == 'hola'){
-            msjMostrar += "el correo no es correcto"
+        if(!correo.trim() == 'hola'){
+            msjMostrar += "<br> El correo ingresado no existe"
             enviar = true;
 
+        }else{
+
+            
         }
 
 
@@ -131,20 +134,17 @@ $(document).ready(function () {
    
 });
 
-//pagina editar perfil 
+//pagina editar perfil
 
-$(document).ready(function(){
-    $("#form3").submit(function(e){
+$(document).ready(function () {
+    $("#form3").submit(function (e) {
         e.preventDefault();
-
         var nombre = $("#name").val();
-        var correo = $("#correo").val();
+        var correo = $("#email").val();
         var fecha = $("#fecha").val();
 
         let msjMostrar = "";
         let enviar = false;
-        
-
 
         if (nombre.trim().length < 4 || nombre.trim().length > 10) {                        //validar nombre
             msjMostrar = msjMostrar + "El nombre debe tener entre 4 y 10 caracteres";
@@ -160,31 +160,67 @@ $(document).ready(function(){
             msjMostrar += "<br>El nombre debe comenzar con mayúscula";
             enviar = true;
         }
+        if (isValidEmail(correo)) {
+            enviar = true;
+            
+        } else {
+            // El correo no es válido, mostrar un mensaje de error
+           msjMostrar += "<br> El correo ingresado no es válido"
+           
+        }
+        
+
+
+
+        if (Date.parse(fecha)) {                                                             //Validar fecha de nacimiento, no permite menores de edad 
+            var edadMilisegundos = Date.now() - Date.parse(fecha);
+            var edad = new Date(edadMilisegundos).getUTCFullYear() - 1970;
+            if (edad >= 18) {
+                // El usuario tiene al menos 18 años
+            } else {
+                msjMostrar += "<br>Debes tener al menos 18 años para registrarte"
+                enviar = true;
+            }
+        } else {
+
+        }
 
         if (enviar) {
             $("#warnings").html(msjMostrar);
         }
         else {
-            $("#warnings").html("Enviado");
+            $("#warnings").html("Su perfil se ha actualizado correctamente");
         }
 
-        //validar correo
-        if((correo).trim().indexOf('@',0) == -1 || (correo).trim().indexOf('.', 0)==-1){
-            msjMostrar +="<br>  El correo introducido es invalido, deve tener un @";
-            enviar = true
-        }
 
-        if(correo.trim()==""){
-            msjMostrar += "<br> El espacio de correo no puede quedar sin rellenar";
-            enviar = true
-        }
 
- 
 
     });
-  
-});
 
+    //Función que permite reconocer si la primera letra esta en mayúscula
+    function esMayuscula(letra) {
+        console.log("Estoy aqui");
+        console.log(letra);
+        console.log(letra.toUpperCase());
+
+        if (letra == letra.toUpperCase()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    //Función que permite validar si el correo lleva @ y .
+    function isValidEmail(correo) {
+        var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return pattern.test(correo);
+      }
+
+
+
+
+
+});
 
 
 
