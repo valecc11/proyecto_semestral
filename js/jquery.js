@@ -348,7 +348,15 @@ $(document).ready(function () {
         }
     });
 });
-
+//recuperar contraseña
+$('#login-form').submit(function(e) {
+    e.preventDefault(); 
+    var email = $('#email').val();
+    $('#login-form').hide(); 
+    $('<p/>', {
+      html: 'Se ha enviado un correo electrónico a ' + email + ' con instrucciones para restablecer la contraseña.'
+    }).appendTo('body'); // muestra un mensaje que simula el envío de un correo electrónico
+  });
 
 
 
