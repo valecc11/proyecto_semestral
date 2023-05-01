@@ -111,7 +111,7 @@ $(document).ready(function () {
         let msjMostrar = "";
         let enviar = false;
 
-        if (correo == 'amoprogramacion@gmail.com' && clave == 'Taylorswitf#13') {
+        if (correo == 'amoprogramacion@gmail.com' && clave == 'Taylorswift#13') {
             // La palabra es correcta, permitir el acceso
             $('#mi-boton').click(function () {
                 window.location.href = 'perfilusuario.html';
@@ -138,15 +138,6 @@ $(document).ready(function () {
             
 
         }
-
-
-
-
-
-
-
-
-
 
         if (enviar) {
             $("#warnings").html(msjMostrar);
@@ -258,28 +249,72 @@ $(document).ready(function () {
 
 //cambiar contraseña
 $(document).ready(function () {
-    $("#password-form").submit(function (e) {
+    $("#form4").submit(function (e) {
         e.preventDefault();
+        
+        var antigua = $("#current-password").val();
         var newPassword = $('#new-password').val();
         var confirmPassword = $('#confirm-password').val();
+
+        let msjMostrar = "";
+        let enviar = false;
+
+    
         // Verificar longitud mínima
-        if (newPassword.length < 8) {
-            $('#password-error').text('La nueva contraseña debe tener al menos 8 caracteres.');
-            e.preventDefault();
-            return;
+        
+
+        if( antigua === 'Taylorswift#13'){
+            
+            enviar = true;
+
+            if (newPassword == confirmPassword) {
+                msjMostrar += "La contraseña se ha cambiado exitosamente";
+                enviar = true;
+                
+            }else{
+                msjMostrar += "Las contraseñas no coinciden, intente nuevamente ";
+                enviar = true;
+            }
+                
+
+        }else{
+            msjMostrar +="La contraseña actual no es correcta";
+            enviar = true;
+            
         }
-        // Verificar mayúsculas, minúsculas, números y simbolo
-        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&*]).+$/;
-        if (!regex.test(newPassword)) {
-            $('#password-error').text('La nueva contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial .');
-            e.preventDefault();
-            return;
+        //validar contraseña
+        if (newPassword.trim().length < 8) {                                                      
+            msjMostrar += "<br>La contraseña debe tener al menos 8 carácteres";
+            enviar = true;
         }
-        // Verificar que las contraseñas coinciden
-        if (newPassword !== confirmPassword) {
-            $('#password-error').text('Las contraseñas no coinciden.');
-            e.preventDefault();
-            return;
+        else if (!/\d/.test(newPassword)) {
+            msjMostrar += "<br>La contraseña debe contener al menos un número";
+            enviar = true;
+        }
+        else if (!/[a-z]/.test(newPassword)) {
+            msjMostrar += "<br>La contraseña debe contener al menos una letra minúscula";
+            enviar = true;
+
+        }
+        else if (!/[A-Z]/.test(newPassword)) {
+            msjMostrar += "<br>La contraseña debe contener al menos una letra mayúscula";
+            enviar = true;
+
+        }
+        else if (!/[!@#$&*]/.test(newPassword)) {
+            msjMostrar += "<br>La contraseña debe contener al menos un carácter especial";
+            enviar = true;
+
+        }
+        //Validar si son iguales
+        
+    
+
+        if (enviar) {
+            $("#warnings").html(msjMostrar);
+        }
+        else {
+            $("#warnings").html("La contraseña se ha cambiado exitosamente");
         }
     });
 });
