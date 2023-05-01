@@ -80,38 +80,32 @@
                 <h2 class="text-center">Inicio sesión</h2>
 
 
-                <form action="crearcuenta.html" method="get" id="form2">
+                <form action="" method="POST" id="form2">
 
                     <div class="form-group">
                         <label for="correo">Correo</label>
-                        <input id="correo" name="correo" class="form-control" type="email"
+                        <input id="correo" name="correo" class="form-control" type=""
                             placeholder="Correo electrónico">
                     </div>
                     <div class="form-group">
-                        <label for="palabraSecreta">Contraseña</label>
-                        <input id="palabraSecreta" name="palabraSecreta" class="form-control" type="password"
+                        <label for="password">Contraseña</label>
+                        <input id="password" name="palabraSecreta" class="form-control" type="password"
                             placeholder="Contraseña">
                     </div>
 
                     <br>
 
-                    <button type="button">
-
-                        <a href="#">Entrar</a>
-                        
-                    </button>
+                    <button type="submit" id="mi-boton">Entrar</button>
                     
 
-                    <button type="submit">
-                        Registrate
-                    </button>
+    
                     <button type="button">
 
                         <a href="perfiladmin.html">Entrar perfil admin</a>
                     </button>
                     <br>
 
-
+                    <a href="crearcuenta.html">No tienes cuenta?</a> Regístrate<br>
                     <a href="recuperar.html">Contraseña olvidada</a>
                     <p class="warnings" id="warnings"></p>
                 </form>

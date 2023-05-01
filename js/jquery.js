@@ -103,35 +103,66 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#form2").submit(function (e) {
         e.preventDefault();
+        
         var correo = $("#correo").val();
-        var clave = $("palabraSecreta").val();
+        var clave = $("#password").val();
 
 
         let msjMostrar = "";
         let enviar = false;
 
-        if(!correo.trim() == 'hola'){
-            msjMostrar += "<br> El correo ingresado no existe"
+        if (correo == 'amoprogramacion@gmail.com' && clave == 'Taylorswitf#13') {
+            // La palabra es correcta, permitir el acceso
+            $('#mi-boton').click(function () {
+                window.location.href = 'perfilusuario.html';
+            });
+            msjMostrar += "Bienvenido, haz click nuevamente!";
+            enviar = true;
+        
+        } else{
+            // La palabra no es correcta, mostrar un mensaje de error
+            msjMostrar += "<br> El correo ingresado o contraseña son incorrectos";
+            
+
+        }
+      
+            
+
+        
+        if (isValidEmail(correo)) {
             enviar = true;
 
-        }else{
-
+        } else {
+            // El correo no es válido, mostrar un mensaje de error
+            msjMostrar += "<br> Incluye un @ para poder continuar"
             
+
         }
 
 
-     
 
-        
+
+
+
+
+
+
+
         if (enviar) {
             $("#warnings").html(msjMostrar);
         }
         else {
-            $("#warnings").html("Enviado");
+            $("#warnings").html("Ingrese algún dato para continuar");
         }
     });
 
-   
+    //Función que permite validar si el correo lleva @ y .
+    function isValidEmail(correo) {
+        var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return pattern.test(correo);
+    }
+
+
 });
 
 //pagina editar perfil
@@ -162,13 +193,13 @@ $(document).ready(function () {
         }
         if (isValidEmail(correo)) {
             enviar = true;
-            
+
         } else {
             // El correo no es válido, mostrar un mensaje de error
-           msjMostrar += "<br> El correo ingresado no es válido"
-           
+            msjMostrar += "<br> El correo ingresado no es válido"
+
         }
-        
+
 
 
 
@@ -214,7 +245,7 @@ $(document).ready(function () {
     function isValidEmail(correo) {
         var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return pattern.test(correo);
-      }
+    }
 
 
 
@@ -226,37 +257,37 @@ $(document).ready(function () {
 
 
 //cambiar contraseña
-$(document).ready(function(){
+$(document).ready(function () {
     $("#password-form").submit(function (e) {
         e.preventDefault();
-              var newPassword = $('#new-password').val();
-              var confirmPassword = $('#confirm-password').val();
-              // Verificar longitud mínima
-              if (newPassword.length < 8) {
-                $('#password-error').text('La nueva contraseña debe tener al menos 8 caracteres.');
-                e.preventDefault();
-                return;
-              }
-              // Verificar mayúsculas, minúsculas, números y simbolo
-              var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&*]).+$/;
-              if (!regex.test(newPassword)) {
-                $('#password-error').text('La nueva contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial .');
-                e.preventDefault();
-                return;
-              }
-              // Verificar que las contraseñas coinciden
-              if (newPassword !== confirmPassword) {
-                $('#password-error').text('Las contraseñas no coinciden.');
-                e.preventDefault();
-                return;
-              }
-            });
+        var newPassword = $('#new-password').val();
+        var confirmPassword = $('#confirm-password').val();
+        // Verificar longitud mínima
+        if (newPassword.length < 8) {
+            $('#password-error').text('La nueva contraseña debe tener al menos 8 caracteres.');
+            e.preventDefault();
+            return;
+        }
+        // Verificar mayúsculas, minúsculas, números y simbolo
+        var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$&*]).+$/;
+        if (!regex.test(newPassword)) {
+            $('#password-error').text('La nueva contraseña debe contener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial .');
+            e.preventDefault();
+            return;
+        }
+        // Verificar que las contraseñas coinciden
+        if (newPassword !== confirmPassword) {
+            $('#password-error').text('Las contraseñas no coinciden.');
+            e.preventDefault();
+            return;
+        }
+    });
 });
-         
-          
-          
-          
 
-          
-          
+
+
+
+
+
+
 
