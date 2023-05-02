@@ -40,25 +40,25 @@ $(document).ready(function () {
         }
         if (clave.trim().length < 8) {
             msjMostrar += "<br>La contraseña debe tener al menos 8 carácteres";
-            enviar = true;
+            
         }
         else if (!/\d/.test(clave)) {
             msjMostrar += "<br>La contraseña debe contener al menos un número";
-            enviar = true;
+            
         }
         else if (!/[a-z]/.test(clave)) {
             msjMostrar += "<br>La contraseña debe contener al menos una letra minúscula";
-            enviar = true;
+            
 
         }
         else if (!/[A-Z]/.test(clave)) {
             msjMostrar += "<br>La contraseña debe contener al menos una letra mayúscula";
-            enviar = true;
+            
 
         }
         else if (!/[!@#$&*]/.test(clave)) {
             msjMostrar += "<br>La contraseña debe contener al menos un carácter especial";
-            enviar = true;
+            
 
         }
 
@@ -77,13 +77,11 @@ $(document).ready(function () {
         } else {
 
         }
+        if(enviar == true){
+            alert("Se ha registrado exitosamente");
+        }
 
-        if (enviar) {
-            $("#warnings").html(msjMostrar);
-        }
-        else {
-            $("#warnings").html("Se ha registrado exitosamente");
-        }
+        
 
 
 
