@@ -10,92 +10,79 @@ $(document).ready(function () {
         let msjMostrar = "";
         let enviar = false;
 
-        if (nombre === '') {
-            msjMostrar += "El campo Nombre debe ser rellenado";
-            
-
-
-        } else {
-            if (nombre.trim().length < 4 || nombre.trim().length > 10) {                        //validar nombre
-                msjMostrar = msjMostrar + "El nombre debe tener entre 4 y 10 caracteres";
-                enviar = true;
-            }
-            else if (/\d/.test(nombre)) {
-                msjMostrar += "<br> El nombre no puede contener números";
-                enviar = true;
-            }
-
-            var letra = nombre.trim().charAt(0);
-            if (!esMayuscula(letra)) {
-                msjMostrar += "<br>El nombre debe comenzar con mayúscula";
-                enviar = true;
-            }
+        if (nombre === '' || correoc === '' || clave === '' || fecha === '') {
+            alert("Todos los campos son requeridos");
+            e.preventDefault();
+            return false;
         }
-        if (correoc === '') {
-            msjMostrar += "<br>El campo Correo debe ser rellenado";
+
+        if (nombre.trim().length < 4 || nombre.trim().length > 10) {                        //validar nombre
+            msjMostrar = msjMostrar + "El nombre debe tener entre 4 y 10 caracteres";
+            enviar = true;
+        }
+        else if (/\d/.test(nombre)) {
+            msjMostrar += "<br> El nombre no puede contener números";
+            enviar = true;
+        }
+
+        var letra = nombre.trim().charAt(0);
+        if (!esMayuscula(letra)) {
+            msjMostrar += "<br>El nombre debe comenzar con mayúscula";
+            enviar = true;
+        }
+        if (isValidEmail(correoc)) {
+            enviar = true;
 
         } else {
-            if (isValidEmail(correoc)) {
-                enviar = true;
+            // El correo no es válido, mostrar un mensaje de error
+            msjMostrar += "<br> El correo ingresado no es válido";
 
+        }
+        if (clave.trim().length < 8) {
+            msjMostrar += "<br>La contraseña debe tener al menos 8 carácteres";
+            enviar = true;
+        }
+        else if (!/\d/.test(clave)) {
+            msjMostrar += "<br>La contraseña debe contener al menos un número";
+            enviar = true;
+        }
+        else if (!/[a-z]/.test(clave)) {
+            msjMostrar += "<br>La contraseña debe contener al menos una letra minúscula";
+            enviar = true;
+
+        }
+        else if (!/[A-Z]/.test(clave)) {
+            msjMostrar += "<br>La contraseña debe contener al menos una letra mayúscula";
+            enviar = true;
+
+        }
+        else if (!/[!@#$&*]/.test(clave)) {
+            msjMostrar += "<br>La contraseña debe contener al menos un carácter especial";
+            enviar = true;
+
+        }
+
+
+        //Validar fecha de nacimiento, no permite menores de edad 
+
+        if (Date.parse(fecha)) {
+            var edadMilisegundos = Date.now() - Date.parse(fecha);
+            var edad = new Date(edadMilisegundos).getUTCFullYear() - 1970;
+            if (edad >= 18) {
+                // El usuario tiene al menos 18 años
             } else {
-                // El correo no es válido, mostrar un mensaje de error
-                msjMostrar += "<br> El correo ingresado no es válido";
+                msjMostrar += "<br>Debes tener al menos 18 años para registrarte";
                 enviar = true;
-
             }
-        }
-        if (clave === '') {
-            msjMostrar += "<br>El campo Contraseña debe ser rellenado";
-
         } else {
-            if (clave.trim().length < 8) {
-                msjMostrar += "<br>La contraseña debe tener al menos 8 carácteres";
-                enviar = true;
-            }
-            else if (!/\d/.test(clave)) {
-                msjMostrar += "<br>La contraseña debe contener al menos un número";
-                enviar = true;
-            }
-            else if (!/[a-z]/.test(clave)) {
-                msjMostrar += "<br>La contraseña debe contener al menos una letra minúscula";
-                enviar = true;
 
-            }
-            else if (!/[A-Z]/.test(clave)) {
-                msjMostrar += "<br>La contraseña debe contener al menos una letra mayúscula";
-                enviar = true;
-
-            }
-            else if (!/[!@#$&*]/.test(clave)) {
-                msjMostrar += "<br>La contraseña debe contener al menos un carácter especial";
-                enviar = true;
-
-            }
         }
-        if (fecha === '') {
-            msjMostrar += "<br>El campo Fecha debe ser rellenado";
-
-        } else {
-            if (Date.parse(fecha)) {
-                var edadMilisegundos = Date.now() - Date.parse(fecha);
-                var edad = new Date(edadMilisegundos).getUTCFullYear() - 1970;
-                if (edad >= 18) {
-                    // El usuario tiene al menos 18 años
-                    enviar = true;
-                } else {
-                    msjMostrar += "<br>Debes tener al menos 18 años para registrarte";
-                    enviar = true;
-                }
-            }
-        }
-
 
         if (enviar) {
             $("#warnings").html(msjMostrar);
         }
         else {
-            $("#warnings").html("Se ha registrado correctamente");
+            $("#warnings").html("Se ha registrado exitosamente");
         }
 
 
@@ -103,6 +90,7 @@ $(document).ready(function () {
 
     });
 
+    //Función que permite reconocer si la primera letra esta en mayúscula
     function esMayuscula(letra) {
         console.log("Estoy aqui");
         console.log(letra);
@@ -119,15 +107,15 @@ $(document).ready(function () {
     function isValidEmail(correoc) {
         var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return pattern.test(correoc);
-
     }
 
 
 
 
 
-
 });
+
+
 
 //PAGINA LOGIN
 $(document).ready(function () {
@@ -198,7 +186,7 @@ $(document).ready(function () {
         let msjMostrar = "";
         let enviar = false;
 
-        if (nombre.trim().length < 4 || nombre.trim().length > 10) {                        //validar nombre
+        if (nombre.trim().length < 4 || nombre.trim().length > 10) {
             msjMostrar = msjMostrar + "El nombre debe tener entre 4 y 10 caracteres";
             enviar = true;
         }
@@ -290,8 +278,12 @@ $(document).ready(function () {
         let enviar = false;
 
 
-        // Verificar longitud mínima
 
+        if (antigua === '' || newPassword === '' || confirmPassword === '') {
+            alert("Todos los campos son requeridos");
+            e.preventDefault();
+            return false;
+        }
 
         if (antigua === 'Taylorswift#13') {
 
@@ -349,14 +341,36 @@ $(document).ready(function () {
     });
 });
 //recuperar contraseña
-$('#login-form').submit(function(e) {
-    e.preventDefault(); 
-    var email = $('#email').val();
-    $('#login-form').hide(); 
-    $('<p/>', {
-      html: 'Se ha enviado un correo electrónico a ' + email + ' con instrucciones para restablecer la contraseña.'
-    }).appendTo('body'); // muestra un mensaje que simula el envío de un correo electrónico
-  });
+$(document).ready(function () {
+    $("#form5").submit(function (e) {
+        e.preventDefault();
+        var correo = $("#email").val();
+
+        let msjMostrar = "";
+        let enviar = false;
+
+        if (correo == 'amoprogramacion@gmail.com') {
+            msjMostrar += "Se le ha enviado un correo a " + correo + " para recuperar su contraseña";
+            enviar = true;
+        } else {
+            msjMostrar += "El correo ingresado no existe";
+            enviar = true;
+        }
+
+        if (enviar) {
+            $("#warnings").html(msjMostrar);
+        }
+        else {
+            $("#warnings").html("");
+        }
+
+
+
+    });
+
+
+});
+
 
 
 
