@@ -77,9 +77,13 @@ $(document).ready(function () {
         } else {
 
         }
-        if(enviar == true){
-            alert("Se ha registrado exitosamente");
+        if (enviar) {
+            $("#warnings").html(msjMostrar);
         }
+        else {
+            $("#warnings").html("Ingrese algún dato para continuar");
+        }
+        
 
         
 
